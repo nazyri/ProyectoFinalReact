@@ -1,1 +1,18 @@
-{}
+{
+  "users": [
+    {
+      "id": "1",
+      "nombre": "ana",
+      "codigo": "1234",
+      "correo": "ana@gmail.com",
+      "clave": "123"
+    },
+    {
+      "id": "2a8d",
+      "nombre": "joshua",
+      "codigo": "1235",
+      "correo": "joshua@gmail.com",
+      "clave": "1234"
+    }
+  ]
+}
