@@ -7,9 +7,9 @@ function LoginForm() {
     const nav = useNavigate
     const [useData, setUseData]= useState([])
     const [codigo, setCodigo]= useState('');
-    const [nombre, setNombre]= useState("");
-    const [email, setEmail] = useState("");
-    const [clave, setClave] = useState("");
+    const [nombre, setNombre]= useState('');
+    const [email, setEmail] = useState('');
+    const [clave, setClave] = useState('');
 
     const codigoRef = useRef();
     const nombreRef = useRef();
