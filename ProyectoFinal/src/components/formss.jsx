@@ -5,8 +5,8 @@ import { getUsers } from "../services/fetch";
 function LoginForm() {
   const navigate = useNavigate; // Asegúrate de llamar a useNavigate como una función
   const [users, setUsers] = useState([]);
-  const [codigo, setCodigo] = useState('');
   const [nombre, setNombre] = useState('');
+  const [codigo, setCodigo] = useState('');
   const [email, setEmail] = useState('');
   const [clave, setClave] = useState('');
 
