@@ -1,9 +1,11 @@
-import Navbar from "../components/Navbar"
+import Destacadas from "../components/Destacadas"
+// import Navbar from "../components/Navbar"
 
 function Home() {
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
+      <Destacadas/>
     </div>
   )
 }

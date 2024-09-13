@@ -20,6 +20,7 @@ nav {
   
   nav ul li {
     margin: 0 15px; /* Espaciado entre los elementos de la lista */
+    cursor: pointer;
   }
   
   nav ul li{
