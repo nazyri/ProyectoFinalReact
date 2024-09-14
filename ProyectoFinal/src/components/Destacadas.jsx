@@ -58,6 +58,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../styles/Destacadas.css'; // Importa el archivo CSS
 import Navbar from './Navbar';
 
+
 const CarouselComponent = () => {
   return (
     <div>
