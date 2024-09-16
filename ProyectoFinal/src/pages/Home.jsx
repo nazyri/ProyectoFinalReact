@@ -1,15 +1,13 @@
-// import Destacadas from "../components/Destacadas"
-// import Navbar from "../components/Navbar"
-import Principal from "../components/Principal";
+import Ayuda from "../components/Ayuda";
+
 
 function Home() {
   return (
     <div>
-      {/* <Navbar/> */}
-      {/* <Destacadas/> */}
-      <Principal/>
+      <h1>holaaaa</h1>
+      <Ayuda/>
     </div>
   )
 }
 
-export default Home
+export default Home;

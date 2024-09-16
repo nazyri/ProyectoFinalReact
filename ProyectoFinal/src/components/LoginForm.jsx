@@ -1,71 +1,59 @@
-import { useRef, useState } from "react";
-import {useNavigate, useEffect} from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react";
 import { getUsers } from "../services/fetch";
 
 function LoginForm() {
+  const navigate = useNavigate;
+  const [users, setUsers] = useState([]);
+  const [nombre, setNombre] = useState('');
+  const [codigo, setCodigo] = useState('');
+  const [email, setEmail] = useState('');
+  const [clave, setClave] = useState('');
 
-    const nav = useNavigate
-    const [useData, setUseData]= useState([])
-    const [codigo, setCodigo]= useState('');
-    const [nombre, setNombre]= useState('');
-    const [email, setEmail] = useState('');
-    const [clave, setClave] = useState('');
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const data = await getUsers("users");
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
 
-    const codigoRef = useRef();
-    const nombreRef = useRef();
-    const emailRef = useRef();
-    const claveRef = useRef();
+    fetchUsers();
+  }, []);
 
-    const vacios = () => {
-        const codigoTrim = codigoRef.current.value.trim();
-        const nombreTrim = nombreRef.current.value.trim();
-        const emailTrim = emailRef.current.value.trim();
-        const claveTrim = claveRef.current.value.trim();
-    
-        if (!codigoTrim || !nombreTrim || !emailTrim || !claveTrim) {
-          alert('Por favor, completa todos los campos.')
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-          return;
-        }
+    if (!codigo.trim() || !nombre.trim() || !email.trim() || !clave.trim()) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
 
-        // Llama a la función para autentificar al usuario
-        const validar=useData.find(user=>user.codigo === codigo && user.nombre === nombre && user.email === email && user.clave === clave)
-        authenticate(validar)
-      };
+    const user = users.find(user =>
+      user.nombre === nombre && user.codigo === codigo && user.email === email && user.clave === clave
+    );
 
-    const authenticate = async (validar) => {
-        try {
-            if(validar){
-              nav("/Home")
-              return
-            }else{
-            alert("Ocurrió un error. Inténtelo más tarde.");
-            }
-          } catch (error) {
-            console.error("Error de autenticación:", error);
-            alert("Ocurrió un error. Inténtelo más tarde.");
-          }
-        };
+    if (user) {
+      navigate("/Home");
+    } else {
+      alert("Error de autenticación. Credenciales incorrectas. Inténtelo de nuevo.");
+    }
+  };
 
-        useEffect (()=>{
-            const usarGet =async ()=>{
-            const data = await getUsers("users")
-               setUseData(data)
-           }
-
-           usarGet()
-           },[])
-    
   return (
     <div>
       <h1>Login</h1>
-            <input type="text" id="nombre" placeholder="Ingrese su nombre" value={nombre} onChange={(e) => setNombre(e.target.value)}/>
-            <input type="text" id="codigo" placeholder="Ingrese su codigo" value={codigo} onChange={(e) => setCodigo(e.target.value)}/>
-            <input type="email" id="email" placeholder="Ingrese su email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input type="password" id="clave" placeholder="Ingrese su clave" value={clave} onChange={(e) => setClave(e.target.value)}/>
-            <button onClick={vacios}>Iniciar Sesion</button>
+      <form onSubmit={handleLogin}>
+        <input type="text" id="nombre" placeholder="Ingrese su nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        <input type="text" id="codigo" placeholder="Ingrese su código" value={codigo} onChange={(e) => setCodigo(e.target.value)} />
+        <input type="text" id="email" placeholder="Ingrese su email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" id="clave" placeholder="Ingrese su clave" value={clave} onChange={(e) => setClave(e.target.value)} />
+        <button type="submit">Iniciar Sesión</button>
+      </form>
     </div>
-  )
+  );
 }
 
 export default LoginForm

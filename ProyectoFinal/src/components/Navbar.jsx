@@ -1,43 +1,20 @@
-import '../styles/Navbar.css'
+import { Link } from 'react-router-dom';
+import '../styles/Navbar.css';
 
 function Navbar() {
   return (
-    <div>
-
-      <nav>
-        <ul>
-            <li><link to="/" />Inicio</li>
-            <li><link to="/" />Destacadas</li>
-            <li><link to="/" />Principal</li>
-            <li><link to="/" />Acerca de Nosotros</li>
-        </ul>
-      </nav>
-    </div>
-  )
+    <nav>
+      <ul>
+        <li><Link to="/">Inicio</Link></li>
+        {/* <li><Link to="/Destacada">Destacadas</Link></li>
+        <li><Link to="/Principal">Principal</Link></li>
+        <li><Link to="/AcercaNosotros">Acerca de Nosotros</Link></li>
+        <li><Link to="/Contacto">Contacto</Link></li>
+        <li><Link to="/Ayuda">Ayuda</Link></li> */}
+      </ul>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
 
-
-
-
-
-// import { Link } from 'react-router-dom';
-// import '../styles/Navbar.css'; // Importa el archivo de estilos si lo usas
-
-// function Navbar() {
-//   return (
-//     <div>
-//     <nav>
-//       <ul>
-//         <li><Link to="/">Inicio</Link></li>
-//         <li><Link to="/page1">Destacada</Link></li>
-//         <li><Link to="/page2">Acerca de Nosotros</Link></li>
-//         <li><Link to="/page3">Principal</Link></li>
-//       </ul>
-//     </nav>
-//     </div>
-//   );
-// }
-
-// export default Navbar;
