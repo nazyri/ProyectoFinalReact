@@ -1,0 +1,71 @@
+
+
+.contact-page {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    color: black;
+  }
+  
+  .contact-page h1 {
+    color: #ff9800; /* Naranja */
+    margin-bottom: 20px;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-item {
+    margin: 10px 0;
+  }
+  
+  .contact-link {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1; /* Color de fondo claro para los enlaces */
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    background-color: #e0e0e0; /* Color de fondo en hover */
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  .contact-link:nth-child(1) {
+    color: #ffeb3b; /* Amarillo */
+  }
+  
+  .contact-link:nth-child(2) {
+    color: #3b5998; /* Azul para Facebook */
+  }
+  
+  .contact-link:nth-child(3) {
+    color: #d44638; /* Rojo para Gmail */
+  }
+  
+  .contact-link:nth-child(4) {
+    color: #69c9d0; /* Azul claro para TikTok */
+  }
+  
+  .contact-link:nth-child(5) {
+    color: #8a3ab9; /* Púrpura para Instagram */
+  }
+  
+  .contact-link:nth-child(6) {
+    color: #25d366; /* Verde para WhatsApp */
+  }
+  

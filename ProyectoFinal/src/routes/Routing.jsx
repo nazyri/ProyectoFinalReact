@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Destacada from './pages/Destacada';
-import Principal from './pages/Principal';
-import AcercaNosotros from './pages/AcercaNosotros';
-import Contacto from './pages/Contacto';
-import Ayuda from './pages/Ayuda';
+import Navbar from '../components/Navbar';
+import Home from '../pages/Home';
+import Destacada from '../pages/Destacada';
+import Principal from '../pages/Principal';
+import AcercaNosotros from '../pages/AcercaNosotros';
+import Contacto from '../pages/Contacto';
+import Ayuda from '../pages/Ayuda';
 
 function App() {
   return (
@@ -24,6 +24,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 

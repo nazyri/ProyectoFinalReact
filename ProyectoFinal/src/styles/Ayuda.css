@@ -1,0 +1,33 @@
+.form{
+    margin-top: -300px;
+    margin-left: 500px;
+    background-color: aqua;
+}
+
+body {
+    background-color: #f8f9fa;
+  }
+  
+  h1.form {
+    color: #ff6f00; /* Naranja */
+  }
+  
+  .form-container {
+    background-color: #ffffff; /* Blanco */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .list-group-item {
+    cursor: pointer;
+  }
+  
+  .list-group-item:hover {
+    background-color: #e2e6ea;
+  }
+  
+  hr {
+    border-top: 1px solid #000000; /* Negro */
+  }
+  

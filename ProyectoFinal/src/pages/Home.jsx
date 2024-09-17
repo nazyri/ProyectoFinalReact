@@ -1,11 +1,12 @@
-import Ayuda from "../components/Ayuda";
+import Carousel from "../components/Carousel";
+
 
 
 function Home() {
   return (
     <div>
-      <h1>holaaaa</h1>
-      <Ayuda/>
+      <Carousel/>
+      
     </div>
   )
 }
