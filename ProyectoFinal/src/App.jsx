@@ -2,8 +2,10 @@
 // import Login from './pages/Login'
 
 import './App.css'
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Contacto from './pages/Contacto';
+// import Ayuda from './pages/Ayuda';
 
 function App() {
 
@@ -13,8 +15,9 @@ function App() {
       <div>
           {/* <Register/>
           <Login/> */}
-          <Home/>
-          
+          {/* <Home/> */}
+          {/* <Ayuda/> */}
+          <Contacto/>
       </div>
     </>
   )

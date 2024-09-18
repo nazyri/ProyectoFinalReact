@@ -1,3 +1,4 @@
+import AyudaForm from '../components/AyudaForm';
 import '../styles/Ayuda.css'
 
 function Ayuda() {
@@ -43,6 +44,7 @@ function Ayuda() {
       <label>Ingrese su consulta</label><br />
     <input type="text" placeholder='Ingrese su consulta'/>
     </div>
+    <AyudaForm/>
     </div>
   )
 }

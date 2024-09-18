@@ -1,3 +1,4 @@
+import Contact from '../components/contact';
 import '../styles/Contacto.css'; // Asegúrate de crear este archivo para los estilos
   function Contacto() {
   
@@ -42,6 +43,7 @@ import '../styles/Contacto.css'; // Asegúrate de crear este archivo para los es
             </a>
           </div>
         </div>
+        <Contact/>
       </div>
     );
   };
