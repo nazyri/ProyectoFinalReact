@@ -1,10 +1,10 @@
 import "../styles/Register.css";
 import { useState } from "react";
-import { useNavigate } from "react"; // Asegúrate de usar "react-router-dom"
-import { postUsers } from "../services/fetch"; // Cambia a postUsers
+import { useNavigate } from "react-router-dom";
+import { postUsers } from "../services/fetch";
 
 const RegisterForm = () => {
-  const navigate = useNavigate; // Asegúrate de llamar a useNavigate como una función
+  const navigate = useNavigate
   const [nombre, setNombre] = useState('');
   const [codigo, setCodigo] = useState('');
   const [correo, setCorreo] = useState('');
@@ -27,7 +27,7 @@ const RegisterForm = () => {
 
     try {
       await postUsers('users', user);
-      navigate("/LoginForm");
+      navigate("/Login");
     } catch (error) {
       console.error(error);
     }

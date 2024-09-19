@@ -16,7 +16,7 @@ function LoginForm() {
         const data = await getUsers("users");
         setUsers(data);
       } catch (error) {
-        console.error("Error fetching users:", error);
+        console.error("Error fetch users:", error); 
       }
     };
 
@@ -38,7 +38,7 @@ function LoginForm() {
     if (user) {
       navigate("/Home");
     } else {
-      alert("Error de autenticación. Credenciales incorrectas. Inténtelo de nuevo.");
+      alert("Error de autenticación. Inténtelo de nuevo.");
     }
   };
 

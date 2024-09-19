@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import '../styles/Carousel.css'; // Importa el archivo CSS
-import Navbar from './Navbar';
+import '../styles/Carousel.css';
+
 
 
 const Carousel = () => {
@@ -56,7 +56,6 @@ const Carousel = () => {
         <h3>Carousel Example</h3>
         <p>The following example shows how to create a basic carousel with indicators and controls.</p>
       </div>
-      <Navbar/>
     </div>
   );
 };

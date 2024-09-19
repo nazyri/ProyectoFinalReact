@@ -20,26 +20,9 @@ const Contact = () => {
     <div style={{ padding: '20px' }}>
       <h1>Contacto</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Tu nombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Tu email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Tu mensaje"
-          value={mensaje}
-          onChange={(e) => setMensaje(e.target.value)}
-          required
-        />
+        <input type="text" placeholder="Tu nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required/>
+        <input type="email" placeholder="Tu email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+        <textarea placeholder="Tu mensaje" value={mensaje} onChange={(e) => setMensaje(e.target.value)} required/>
         <button type="submit">Enviar</button>
       </form>
     </div>

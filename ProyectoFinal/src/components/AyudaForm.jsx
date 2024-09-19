@@ -25,16 +25,10 @@ const AyudaForm = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className='div1'>
       <h1>Consulta sobre Comida Saludable</h1>
       <form onSubmit={handleSubmit}>
-        <textarea
-          value={consulta}
-          onChange={(e) => setConsulta(e.target.value)}
-          placeholder="Escribe tu consulta aquí..."
-          rows="4"
-          style={{ width: '100%' }}
-        />
+        <textarea value={consulta} onChange={(e) => setConsulta(e.target.value)} placeholder="Escribe tu consulta aquí..." rows="4" style={{ width: '100%' }}/>
         <button type="submit">Enviar Consulta</button>
       </form>
 

@@ -1,22 +1,4 @@
-const url = "http://localhost:3001/";
-
-const getUsers = async (endpoint, id = "") => {
-  try {
-    const response = await fetch(`${url}${endpoint}/${id}`, {
-      method: "GET",
-      mode: "cors",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    return data;
-  } catch (e) {
-    console.error(e);
-    return null;
-  }
-};
+const url = "http://localhost:3001/users";
 
 const getByCategory = async (endpoint = "", category = "") => {
   try {
@@ -31,15 +13,15 @@ const getByCategory = async (endpoint = "", category = "") => {
     const data = await response.json();
     console.log(`${url}${endpoint}${category}`);
     return data;
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };
 
 const postUsers = async (endpoint, body) => {
   try {
-    const response = await fetch(`${url}${endpoint}`, {
+    const response = await fetch(`${url}/${endpoint}`, {
       method: "POST",
       mode: "cors",
       credentials: "same-origin",
@@ -48,13 +30,19 @@ const postUsers = async (endpoint, body) => {
       },
       body: JSON.stringify(body),
     });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
     const data = await response.json();
     return data;
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };
+
 
 const put = async (endpoint, body) => {
   try {
@@ -69,8 +57,8 @@ const put = async (endpoint, body) => {
     });
     const data = await response.json();
     return data;
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };
@@ -88,4 +76,18 @@ const deleteMethod = async (endpoint, id) => {
   }
 };
 
-export { getUsers, postUsers, put, deleteMethod, getByCategory };
+export { postUsers, put, deleteMethod, getByCategory };
+
+export const getUsers = async () => {
+  try {
+    const response = await fetch('http://localhost:3001/users');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error al obtener los datos', error);
+    throw error;
+  }
+};
+
