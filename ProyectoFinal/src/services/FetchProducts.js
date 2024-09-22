@@ -1,4 +1,4 @@
-const url = "http://localhost:3001/users";
+const url = "http://localhost:3001/products";
 
 const getByCategory = async (endpoint = "", category = "") => {
   try {
@@ -19,9 +19,9 @@ const getByCategory = async (endpoint = "", category = "") => {
   }
 };
 
-const postUsers = async (obj) => {
+const postProducts = async (obj) => {
   try {
-    const response = await fetch('http://localhost:3001/users', {
+    const response = await fetch('http://localhost:3001/products', {
       method: "POST",
       mode: "cors",
       credentials: "same-origin",
@@ -42,7 +42,7 @@ const postUsers = async (obj) => {
 
 
 
-const put = async (endpoint) => {
+const putProducts = async (endpoint) => {
   try {
     const response = await fetch(`${url}${endpoint}`, {
       method: "PUT",
@@ -61,7 +61,7 @@ const put = async (endpoint) => {
   }
 };
 
-const deleteMethod = async (endpoint, id) => {
+const deleteProducts = async (endpoint, id) => {
   try {
     await fetch(`${url}${endpoint}${id}`, {
       method: "DELETE",
@@ -74,11 +74,11 @@ const deleteMethod = async (endpoint, id) => {
   }
 };
 
-export { postUsers, put, deleteMethod, getByCategory };
+export { postProducts, putProducts, deleteProducts, getByCategory };
 
-export const getUsers = async () => {
+export const getProducts = async () => {
   try {
-    const response = await fetch('http://localhost:3001/users');
+    const response = await fetch('http://localhost:3001/products');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -88,4 +88,3 @@ export const getUsers = async () => {
     throw error;
   }
 };
-

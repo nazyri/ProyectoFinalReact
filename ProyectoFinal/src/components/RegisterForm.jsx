@@ -1,14 +1,23 @@
 import "../styles/Register.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { postUsers } from "../services/fetch";
+import { postUsers, getUsers } from "../services/fetch";
 
 const RegisterForm = () => {
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const [nombre, setNombre] = useState('');
   const [codigo, setCodigo] = useState('');
   const [correo, setCorreo] = useState('');
   const [clave, setClave] = useState('');
+  const [datos, setDatos] = useState ([])
+
+  useEffect(() => {
+    const get = async () =>{
+      const dataUsers = await getUsers("users")
+      setDatos(dataUsers)
+    }
+    get()
+  },[])
 
   const crearUsuario = async (e) => {
     e.preventDefault();
@@ -16,28 +25,28 @@ const RegisterForm = () => {
     if (!nombre || !codigo || !correo || !clave) {
       alert("Espacios vacíos");
       return;
-    }
-
-    const user = {
-      nombre,
-      codigo,
-      correo,
-      clave
-    };
-
-    try {
-      await postUsers('users', user);
+    } else{
+      const usuario = datos.find((user) => user.correo === correo)
+      if (usuario) {
+        alert("El usuario ya existe")
+      }else{
+      const user = {
+        nombre: nombre,
+        codigo: codigo,
+        correo: correo,
+        clave: clave
+      };
+      await postUsers(user);
       navigate("/Login");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    }}}
+  
+
 
   return (
     <div className="register">
       <img className="container-img" src="/src/img/IMG_0653 - Fleyzen media.png" alt="Imagen de registro" />
       <div className="container-register">
-        <form className="form" onSubmit={crearUsuario}>
+        <form className="form2" onSubmit={crearUsuario} style={{ marginLeft: '-650px' }}>
           <h2 className="Titulo-register">Register</h2>
           <p>Usuario</p>
           <input type="text" placeholder="Nombre de usuario" value={nombre} onChange={(e) => setNombre(e.target.value)} />

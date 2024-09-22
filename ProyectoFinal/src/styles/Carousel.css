@@ -1,30 +1,27 @@
-.carousel {
-    width: 80%; /* Ajusta el ancho según sea necesario */
-    max-width: 1200px; /* Opcional: un ancho máximo para el carrusel */
-    margin-top: px;/* Centra horizontalmente */
-    margin-left: 300px;
-    height: 60vh; /* Ajusta la altura como un porcentaje de la ventana del navegador */
-    overflow: hidden; /* Asegura que el contenido no sobresalga del contenedor */
-  }
+/* Carousel.css */
 
-  .container {
-    display: grid;
-    place-items: center; /* Centra el contenido tanto horizontal como verticalmente */
-    min-height: 100vh; /* Ajusta la altura mínima del contenedor padre */ 
-  }
-  
-  .carousel {
-    width: 80%; /* Ajusta el ancho según sea necesario */
-    max-width: 1200px; /* Opcional: un ancho máximo para el carrusel */
-    height: 60vh; /* Ajusta la altura como un porcentaje de la ventana del navegador */
-    overflow: hidden; /* Asegura que el contenido no sobresalga del contenedor */
-  }
-  .img-destacadas{
-    width: 950px;
-  }
-  
-  
-  
-  
-  
-  
+.carousel-inner {
+  height: 50vh; /* Ajusta la altura del carrusel */
+}
+
+.carousel-item img {
+  width: 90%; /* Asegúrate de que las imágenes ocupen todo el ancho */
+  height: 100%; /* Ocupa toda la altura del contenedor */
+  object-fit: contain; /* Mantiene la imagen entera sin recortarla */
+  display: block; /* Asegúrate de que la imagen se comporte como un bloque */
+  margin: auto; /* Centra la imagen verticalmente */
+}
+
+.img-destacadas {
+  border-radius: 10px; /* Opcional: añade bordes redondeados a las imágenes */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para los controles */
+  border-radius: 50%; /* Botones circulares */
+}
+
+.container-fluid {
+  text-align: center; /* Centra el texto */
+}

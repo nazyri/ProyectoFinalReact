@@ -1,0 +1,42 @@
+.carousel-inner {
+    display: flex;
+    align-items: center;
+    margin-top: 600px;
+  }
+  
+  .cards-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px; /* Ajusta el espacio entre las tarjetas si es necesario */
+  }
+  
+  .card {
+    flex: 0 0 auto; /* Esto asegura que las tarjetas no se estiren ni se encojan */
+    width: 100%; /* Ajusta el ancho de las tarjetas para que se alineen bien */
+    /* Ajusta la altura fija para la tarjeta si es necesario */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-img-top {
+    width: 100%; /* Asegura que la imagen se ajuste al ancho de la tarjeta */
+    height: 350px; /* Ajusta la altura según sea necesario */
+    object-fit: cover; /* Mantiene la proporción de la imagen sin distorsionarla */
+  }
+  
+  .card-body {
+    flex: 1; /* Permite que el contenido de la tarjeta ocupe el espacio restante */
+  }
+  
+  @media (min-width: 768px) {
+    .card {
+      width: 33.33%; /* En pantallas más grandes, ajusta el ancho de cada tarjeta para mostrar 3 tarjetas por diapositiva */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .card {
+      width: 100%; /* En pantallas pequeñas, muestra una tarjeta por diapositiva */
+    }
+  }
+  

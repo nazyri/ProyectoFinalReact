@@ -1,0 +1,13 @@
+.container {
+    margin-top: 50px;
+  }
+  
+  .card {
+    margin: 10px; /* Añade espacio entre las tarjetas */
+  }
+  
+  .card-img-top {
+    height: 200px; /* Ajusta la altura de las imágenes */
+    object-fit: cover; /* Asegura que las imágenes se recorten correctamente */
+  }
+  

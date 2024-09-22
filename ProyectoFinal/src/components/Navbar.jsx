@@ -1,30 +1,18 @@
-import { Link } from 'react-router-dom';
+import '../styles/Navbar.css'
 
 const Navbar = () => {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/Destacada">Destacada</Link>
-        </li>
-        <li>
-          <Link to="/Principal">Principal</Link>
-        </li>
-        <li>
-          <Link to="/AcercaNosotros">Acerca Nosotros</Link>
-        </li>
-        <li>
-          <Link to="/Contacto">Contacto</Link>
-        </li>
-        <li>
-          <Link to="/Ayuda">Ayuda</Link>
-        </li>
+        <li><a href="/Home">Home</a></li>
+        <li><a href="/Destacada">Destacada</a></li>
+        <li><a href="/Principal">Principal</a></li>
+        <li><a href="/AcercaNosotros">Acerca Nosotros</a></li>
+        <li><a href="/Contacto">Contacto</a></li>
+        <li><a href="/Ayuda">Ayuda</a></li>
       </ul>
     </nav>
-  );
+  )
 };
 
 export default Navbar;
