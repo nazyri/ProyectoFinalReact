@@ -1,6 +1,7 @@
 import '../styles/Card.css';
 
-function Cards() {
+
+function Cards( agregarAlCarrito ) {
   return (
     <div className="container">
       <div className="row">
@@ -10,7 +11,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 1</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 1, nombre: 'Card 1' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -20,7 +21,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 2</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary"  onClick={() => agregarAlCarrito({ id: 2, nombre: 'Card 2' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -30,7 +31,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 3</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 3, nombre: 'Card 3' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -43,7 +44,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 4</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 4, nombre: 'Card 4' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -53,7 +54,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 5</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 5, nombre: 'Card 5' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -63,7 +64,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 6</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 6, nombre: 'Card 6' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -75,7 +76,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 7</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 7, nombre: 'Card 7' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -85,7 +86,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 8</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 8, nombre: 'Card 8' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -95,7 +96,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 9</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 9, nombre: 'Card 9' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -107,7 +108,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 10</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 10, nombre: 'Card 10' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -117,7 +118,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 11</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 11, nombre: 'Card 11' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>
@@ -127,7 +128,7 @@ function Cards() {
             <div className="card-body">
               <h5 className="card-title">Card 12</h5>
               <p className="card-text">Some quick example text.</p>
-              <a href="#" className="btn btn-primary">Agregar al carrito</a>
+              <a href="#" className="btn btn-primary" onClick={() => agregarAlCarrito({ id: 12, nombre: 'Card 12' })}>Agregar al carrito</a>
             </div>
           </div>
         </div>

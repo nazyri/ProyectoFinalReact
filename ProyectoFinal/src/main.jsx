@@ -10,7 +10,7 @@ import Home from './pages/Home';
 // import Destacada from './pages/Destacadas';
 // import Principal from './pages/Principal';
 // import AcercaNosotros from './pages/AcercaNosotros';
-// import Contacto from './pages/Contacto';
+import Contacto from './pages/Contacto';
 // import Ayuda from './pages/Ayuda';
 // import AgregarProductos from './pages/AgregarProductos';
 
@@ -45,10 +45,10 @@ const router = createBrowserRouter([
   //   path: "/AcercaNosotros",
   //   element: <AcercaNosotros/>
   // },
-  // {
-  //   path: "/Contacto",
-  //   element: <Contacto/>
-  // },
+  {
+    path: "/Contacto",
+    element: <Contacto/>
+  },
   // {
   //   path: "/Ayuda",
   //   element: <Ayuda/>
