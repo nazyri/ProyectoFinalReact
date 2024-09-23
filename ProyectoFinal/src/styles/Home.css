@@ -1,0 +1,30 @@
+.container {
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.cards {
+  border: 1px solid #ddd; /* O el estilo que prefieras */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Asegura que el contenido no sobresalga */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+}
+
+.card-img-top {
+  height: 200px; /* Ajusta la altura de las imágenes */
+  object-fit: cover; /* Asegura que las imágenes se recorten correctamente */
+}
+
+.cards {
+  transition: transform 0.2s;
+}
+
+.cards:hover {
+  transform: scale(1.05);
+}

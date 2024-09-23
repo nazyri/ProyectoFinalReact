@@ -1,0 +1,55 @@
+nav {
+    background-color: #2c3e50; /* Color de fondo oscuro */
+    padding: 10px 20px; /* Espaciado alrededor del contenido */
+    height: 10%;
+    width: 100%; /* Asegura que el navbar ocupe todo el ancho de la pantalla */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    position: fixed; /* Fija el navbar en la parte superior */
+    top: 0; /* Coloca el navbar en la parte superior */
+    left: 0; /* Alinea el navbar a la izquierda */
+    z-index: 1000; /* Asegura que el navbar esté sobre otros elementos */
+  }
+  
+  nav ul {
+    list-style-type: none; /* Quitar viñetas */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Mostrar los elementos en fila */
+    justify-content: center; /* Centrar los elementos en la barra */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+  
+  nav ul li {
+    margin: 0 15px; /* Espaciado entre los elementos de la lista */
+    cursor: pointer;
+  }
+  
+  nav ul li{
+    color: white; /* Color del texto */
+    text-decoration: none; /* Quitar el subrayado */
+    padding: 10px 100px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el efecto hover */
+  }
+  
+  nav ul li:hover {
+    background-color: #3e5770; /* Color de fondo al pasar el ratón */
+    color: #ffffff; /* Color del texto al pasar el ratón */
+  }
+
+  .h11{
+    font-size: 700%;
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column; /* Cambia la dirección a columna en pantallas más pequeñas */
+      align-items: center; /* Centra los elementos en la columna */
+    }
+  
+    nav ul li {
+      margin: 5px 0; /* Reduce el espaciado entre los elementos */
+    }
+  }
+  
