@@ -1,8 +1,11 @@
 import '../styles/Contacto.css';
 import ContactForm from '../components/ContactForm';
+import Navbar from '../components/Navbar';
 
 function Contacto() {
   return (
+    <div>
+      <Navbar/>
     <div className="contact-page">
       <h1>¡Estamos aquí para ayudarte!</h1>
       <p className="intro-text">
@@ -59,6 +62,7 @@ function Contacto() {
       <div className="footer">
         <h3>¡Esperamos verte pronto en nuestra tienda!</h3>
       </div>
+    </div>
     </div>
   );
 }

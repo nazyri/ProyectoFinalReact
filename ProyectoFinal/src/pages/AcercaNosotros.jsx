@@ -1,8 +1,10 @@
+import Navbar from '../components/Navbar'
 import '../styles/AcercaNosotros.css'
 
 function AcercaNosotros() {
   return (
     <div>
+      <Navbar/>
           <div className="about-us">
       <h1>¡Bienvenido a Punto Natural CR!</h1>
       <p className="intro">

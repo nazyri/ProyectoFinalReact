@@ -13,11 +13,13 @@ const Home = () => {
     { id: 3, title: 'Card 3', description: 'Descripción 3', price: 300, imgSrc: '/src/img/WhatsApp Image 2024-09-13 at 1.50.26 PM.jpeg' },
   ]);
   
+  const [cart, setCart] = useState([]); // Estado para el carrito
+  const [showCart, setShowCart] = useState(false); // Estado para mostrar/ocultar el carrito
   const [editCard, setEditCard] = useState(null);
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
   const [newPrice, setNewPrice] = useState('');
-  const [newImage, setNewImage] = useState(null); // Nuevo estado para la imagen
+  const [newImage, setNewImage] = useState(null);
   const [modalAbierto, setModalAbierto] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -72,12 +74,12 @@ const Home = () => {
       title: newTitle,
       description: newDescription,
       price: newPrice,
-      imgSrc: newImage ? URL.createObjectURL(newImage) : '/src/img/default.jpg', // Crear URL para la imagen
+      imgSrc: newImage ? URL.createObjectURL(newImage) : '/src/img/default.jpg',
     };
 
     try {
-      const addedProduct = await postProducts(newProduct); // Llamar a la función postProducts
-      setCards(prevCards => [...prevCards, addedProduct]); // Añadir el producto a la lista
+      const addedProduct = await postProducts(newProduct);
+      setCards(prevCards => [...prevCards, addedProduct]);
       setNewTitle('');
       setNewDescription('');
       setNewPrice('');
@@ -88,6 +90,15 @@ const Home = () => {
     }
   };
 
+  const addToCart = (card) => {
+    setCart(prevCart => [...prevCart, card]); // Agregar producto al carrito
+    alert(`${card.title} ha sido agregado al carrito.`); // Mensaje de confirmación
+  };
+
+  const toggleCart = () => {
+    setShowCart(prevShowCart => !prevShowCart); // Alternar la visibilidad del carrito
+  };
+
   return (
     <div>
       <Navbar />
@@ -95,7 +106,7 @@ const Home = () => {
       <div className="container">
         <button onClick={() => setModalAbierto(true)}>Iniciar Sesión como Admin</button>
         
-        {modalAbierto && ( // Mostrar campos de entrada al hacer clic
+        {modalAbierto && (
           <div className="login-form" style={{ margin: '20px 0' }}>
             <input 
               type="email" 
@@ -156,6 +167,28 @@ const Home = () => {
           </>
         )}
 
+        <button onClick={toggleCart} style={{ margin: '20px 0' }}>
+          {showCart ? 'Ocultar Carrito' : 'Mostrar Carrito'}
+        </button>
+
+        {showCart && (
+          <div className="cart">
+            <h3>Carrito</h3>
+            {cart.length === 0 ? (
+              <p>No hay productos en el carrito.</p>
+            ) : (
+              <ul>
+                {cart.map((item, index) => (
+                  <li key={index}>
+                    <img src={item.imgSrc} alt={item.title} style={{ width: '50px', marginRight: '10px' }} />
+                    {item.title} - ${item.price}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+
         <div className="grid">
           {cards.map(card => (
             <div className="cards" key={card.id}>
@@ -164,7 +197,7 @@ const Home = () => {
                 <h5 className="card-title">{card.title}</h5>
                 <p className="card-text">{card.description}</p>
                 <p className="card-price">Precio: ${card.price}</p>
-                <a href="#" className="btn btn-primary">Agregar al carrito</a>
+                <button className="btn btn-primary" onClick={() => addToCart(card)}>Agregar al carrito</button>
                 {isAdmin && (
                   <>
                     <button className="btn btn-danger" onClick={() => handleDelete(card.id)}>Eliminar</button>
@@ -180,27 +213,9 @@ const Home = () => {
           <div className="edit-form">
             <h3>Editar Tarjeta</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '18rem' }}>
-              <input 
-                type="text" 
-                value={newTitle} 
-                onChange={(e) => setNewTitle(e.target.value)} 
-                placeholder="Nuevo título" 
-                style={{ width: '100%' }} 
-              />
-              <input 
-                type="text" 
-                value={newDescription} 
-                onChange={(e) => setNewDescription(e.target.value)} 
-                placeholder="Nueva descripción" 
-                style={{ width: '100%' }} 
-              />
-              <input 
-                type="number" 
-                value={newPrice} 
-                onChange={(e) => setNewPrice(e.target.value)} 
-                placeholder="Nuevo precio" 
-                style={{ width: '100%' }} 
-              />
+              <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Nuevo título" style={{ width: '100%' }} />
+              <input type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} placeholder="Nueva descripción" style={{ width: '100%' }} />
+              <input type="number" value={newPrice} onChange={(e) => setNewPrice(e.target.value)} placeholder="Nuevo precio" style={{ width: '100%' }} />
               <button onClick={handleUpdate}>Actualizar</button>
               <button onClick={() => setEditCard(null)}>Cancelar</button>
             </div>

@@ -1,4 +1,4 @@
-import Modal from '../components/Modal';
+
 import AyudaForm from '../components/AyudaForm';
 import Navbar from '../components/Navbar';
 import '../styles/Ayuda.css'
@@ -48,7 +48,6 @@ function Ayuda() {
     <input type="text" placeholder='Ingrese su consulta'/>
     </div>
     <AyudaForm/>
-    <Modal/>
     </div>
   )
 }
