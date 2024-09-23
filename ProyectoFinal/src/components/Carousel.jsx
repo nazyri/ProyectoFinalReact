@@ -8,13 +8,13 @@ const Carousel = () => {
        <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/src/img/image1.jpg" className="d-block w-100" alt="Slide 1" />
+          <img src="/src/img/IMG_0653 - Fleyzen media.png" className="d-block w-100" alt="Slide 1" />
         </div>
         <div className="carousel-item">
-          <img src="/src/img/image2.jpg" className="d-block w-100" alt="Slide 2" />
+          <img src="/src/img/WhatsApp Image 2024-09-13 at 1.50.26 PM.jpeg" className="d-block w-100" alt="Slide 2" />
         </div>
         <div className="carousel-item">
-          <img src="/src/img/image3.jpg" className="d-block w-100" alt="Slide 3" />
+          <img src="/src/WhatsApp Image 2024-09-19 at 8.34.01 AM.jpeg" className="d-block w-100" alt="Slide 3" />
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

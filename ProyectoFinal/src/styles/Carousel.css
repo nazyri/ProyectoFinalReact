@@ -2,6 +2,7 @@
 
 .carousel-inner {
   height: 50vh; /* Ajusta la altura del carrusel */
+  width: 210vh;
 }
 
 .carousel-item img {
