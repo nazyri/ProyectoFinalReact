@@ -1,4 +1,5 @@
 import '../styles/Contacto.css';
+import ContactForm from '../components/ContactForm';
 
 function Contacto() {
   return (
@@ -44,6 +45,15 @@ function Contacto() {
               WhatsApp: +1 234 567 890
             </a>
           </div>
+        </div>
+      </div>
+      <div className="contact-container">
+        <div className="contact-icon-container">
+          <img src="/src/img/IMG_0653 - Fleyzen media.png" alt="Logo de la tienda" className="contact-icon-large" />
+        </div>
+        <div className="contact-info">
+          <h2>Contacta con nosotros</h2>
+          <ContactForm />
         </div>
       </div>
       <div className="footer">

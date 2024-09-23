@@ -1,32 +1,37 @@
 import { useState } from 'react';
-import '../styles/Modal.css'
+import '../styles/Modal.css';
 
-const Modal = ({ modalAbierto, cerrarModal }) => {
-  const [archivo, setArchivo] = useState(null);
-  const [descripcion, setDescripcion] = useState('');
-  const [precio, setPrecio] = useState('');
+const Modal = ({ modalAbierto, cerrarModal, handleLogin }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const manejarCambioArchivo = (e) => {
-    setArchivo(e.target.files[0]);
-  };
+  if (!modalAbierto) return null; // No mostrar nada si el modal está cerrado
 
-  const manejarEnvio = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    console.log(archivo, descripcion, precio);
-    cerrarModal(); // Cerrar el modal
+    handleLogin(email, password); // Llamar a la función para manejar el login
   };
-
-  if (!modalAbierto) return null;
 
   return (
     <div className="overlay-modal">
       <div className="modal">
-        <h2>Añadir Producto</h2>
-        <form onSubmit={manejarEnvio}>
-          <input type="file" onChange={manejarCambioArchivo} required/>
-          <input type="text" placeholder="Descripción del producto" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} required/>
-          <input type="number" placeholder="Precio" value={precio} onChange={(e) => setPrecio(e.target.value)} required/>
-          <button type="submit">Añadir</button>
+        <h2>Iniciar Sesión como Administrador</h2>
+        <form onSubmit={submitHandler}>
+          <input 
+            type="email" 
+            placeholder="Correo" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Contraseña" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required 
+          />
+          <button type="submit">Iniciar Sesión</button>
         </form>
         <button className="boton-cerrar" onClick={cerrarModal}>Cerrar</button>
       </div>
@@ -35,4 +40,3 @@ const Modal = ({ modalAbierto, cerrarModal }) => {
 };
 
 export default Modal;
-

@@ -1,5 +1,4 @@
 .overlay-modal {
-    margin-top: 500px;
     position: fixed;
     top: 0;
     left: 0;
@@ -9,30 +8,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modal {
+}
+
+.modal {
     background: white;
     padding: 20px;
     border-radius: 8px;
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .modal h2 {
-    margin: 0 0 20px;
-  }
-  
-  .modal input {
+}
+
+.modal input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  .modal button {
+}
+
+.modal button {
     width: 100%;
     padding: 10px;
     background: #28a745;
@@ -40,15 +35,8 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .modal button.boton-cerrar {
+}
+
+.modal button.boton-cerrar {
     background: #dc3545;
-  }
-  
-  @media (max-width: 600px) {
-    .modal {
-      width: 95%;
-    }
-  }
-  
+}
