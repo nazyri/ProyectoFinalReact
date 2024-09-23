@@ -1,10 +1,13 @@
+import Modal from '../components/Modal';
 import AyudaForm from '../components/AyudaForm';
+import Navbar from '../components/Navbar';
 import '../styles/Ayuda.css'
 
 function Ayuda() {
 
   return (
     <div>
+      <Navbar/>
       <h1 className='form'>Formulario de Ayuda</h1>
       <br /><br />
       <div className="izquierda" id="accordionFlushExample">
@@ -45,6 +48,7 @@ function Ayuda() {
     <input type="text" placeholder='Ingrese su consulta'/>
     </div>
     <AyudaForm/>
+    <Modal/>
     </div>
   )
 }

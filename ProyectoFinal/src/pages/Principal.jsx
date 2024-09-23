@@ -1,8 +1,11 @@
+import Cards from '../components/Cards';
+import Navbar from '../components/Navbar';
 import '../styles/Principal.css';
 
 const Principal = () => {
   return (
     <div>
+      <Navbar/>
       <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -73,6 +76,7 @@ const Principal = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+    <Cards/>
     </div>
   );
 };
