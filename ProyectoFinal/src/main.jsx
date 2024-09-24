@@ -12,8 +12,6 @@ import AcercaNosotros from './pages/AcercaNosotros';
 import Contacto from './pages/Contacto';
 import Ayuda from './pages/Ayuda';
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",

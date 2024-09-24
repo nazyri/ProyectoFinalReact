@@ -9,9 +9,9 @@ import { mostrarAlerta } from '../components/SweetAlert';
 const Home = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [cards, setCards] = useState([
-    { id: 1, title: 'Card 1', description: 'Descripción 1', price: 100, imgSrc: '/src/img/WhatsApp Image 2024-09-19 at 8.38.19 AM (1).jpeg' },
-    { id: 2, title: 'Card 2', description: 'Descripción 2', price: 200, imgSrc: '/src/img/WhatsApp Image 2024-09-19 at 8.34.00 AM.jpeg' },
-    { id: 3, title: 'Card 3', description: 'Descripción 3', price: 300, imgSrc: '/src/img/WhatsApp Image 2024-09-13 at 1.50.26 PM.jpeg' },
+    { id: 1, title: 'Jugo Natural', description: 'Jugo de remolacha, nueces y manzana verde', price: 20, imgSrc: '/src/img/WhatsApp Image 2024-09-19 at 8.38.19 AM (1).jpeg' },
+    { id: 2, title: 'batido Natural', description: 'Batido de fresas, con banano y mango', price: 25, imgSrc: '/src/img/WhatsApp Image 2024-09-19 at 8.34.00 AM.jpeg' },
+    { id: 3, title: 'sandwitch natural', description: 'pan integral, lechuga tomate y salsas naturales', price: 35, imgSrc: '/src/img/WhatsApp Image 2024-09-19 at 8.34.01 AM (4).jpeg' },
   ]);
   
   const [cart, setCart] = useState([]);
@@ -71,7 +71,6 @@ const Home = () => {
   };
 
   const handleAddProduct = async () => {
-    // Validación de los campos
     if (!newTitle || !newDescription || !newPrice || !newImage) {
         mostrarAlerta("error", "Por favor, completa todos los campos.");
         return;
@@ -100,6 +99,11 @@ const Home = () => {
   const addToCart = (card) => {
     setCart(prevCart => [...prevCart, card]);
     mostrarAlerta('success', `${card.title} ha sido agregado al carrito.`);
+  };
+
+  const removeFromCart = (index) => {
+    setCart(prevCart => prevCart.filter((_, i) => i !== index));
+    mostrarAlerta('info', 'Producto eliminado del carrito.');
   };
 
   const toggleCart = () => {
@@ -151,9 +155,10 @@ const Home = () => {
             ) : (
               <ul>
                 {cart.map((item, index) => (
-                  <li key={index}>
+                  <li key={index} style={{ display: 'flex', alignItems: 'center' }}>
                     <img src={item.imgSrc} alt={item.title} style={{ width: '50px', marginRight: '10px' }} />
                     {item.title} - ${item.price}
+                    <button onClick={() => removeFromCart(index)} style={{ marginLeft: '10px', color: 'red' }}>Eliminar</button>
                   </li>
                 ))}
               </ul>

@@ -5,7 +5,7 @@ function AcercaNosotros() {
   return (
     <div>
       <Navbar/>
-          <div className="about-us">
+          <div className="aboutus">
       <h1>¡Bienvenido a Punto Natural CR!</h1>
       <p className="intro">
         En Punto Natural CR, creemos que la comida saludable no solo es una necesidad, ¡sino un verdadero placer! Nuestra misión es inspirarte a llevar un estilo de vida más saludable a través de recetas deliciosas y nutritivas que alegrarán tu día a día.
