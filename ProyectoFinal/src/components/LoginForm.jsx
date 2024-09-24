@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../services/fetch";
+import { mostrarAlerta } from "./SweetAlert";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function LoginForm() {
     e.preventDefault();
 
     if (!codigo.trim() || !nombre.trim() || !correo.trim() || !clave.trim()) {
-      alert("Por favor, completa todos los campos.");
+      mostrarAlerta("error","Llene los campos vacios");
       return;
     }
 
@@ -38,7 +39,8 @@ function LoginForm() {
     if (user) {
       navigate("/Home");
     } else {
-      alert("Error de autenticación. Inténtelo de nuevo.");
+      // alert("Error de autenticación. Inténtelo de nuevo.");
+      mostrarAlerta("error", "Error de autenticación. Inténtelo de nuevo.")
     }
   };
 

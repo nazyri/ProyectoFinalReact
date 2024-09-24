@@ -2,6 +2,7 @@ import "../styles/Register.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { postUsers, getUsers } from "../services/fetch";
+import { mostrarAlerta } from "./SweetAlert";
 
 const RegisterForm = () => {
   const navigate = useNavigate()
@@ -23,12 +24,14 @@ const RegisterForm = () => {
     e.preventDefault();
 
     if (!nombre || !codigo || !correo || !clave) {
-      alert("Espacios vacíos");
+      // alert("Espacios vacíos");
+      mostrarAlerta("error", "llene los espacios vacios")
       return;
     } else{
       const usuario = datos.find((user) => user.correo === correo)
       if (usuario) {
-        alert("El usuario ya existe")
+        // alert("El usuario ya existe")
+        mostrarAlerta("error","El usuario ya existe");
       }else{
       const user = {
         nombre: nombre,

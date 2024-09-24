@@ -4,6 +4,7 @@ import Carousel from '../components/Carousel';
 import '../styles/Home.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { deleteProducts, putProducts, postProducts } from '../services/FetchProducts'; 
+import { mostrarAlerta } from '../components/SweetAlert';
 
 const Home = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -13,8 +14,8 @@ const Home = () => {
     { id: 3, title: 'Card 3', description: 'Descripción 3', price: 300, imgSrc: '/src/img/WhatsApp Image 2024-09-13 at 1.50.26 PM.jpeg' },
   ]);
   
-  const [cart, setCart] = useState([]); // Estado para el carrito
-  const [showCart, setShowCart] = useState(false); // Estado para mostrar/ocultar el carrito
+  const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
   const [editCard, setEditCard] = useState(null);
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
@@ -65,38 +66,44 @@ const Home = () => {
       setEmail('');
       setPassword('');
     } else {
-      alert('Credenciales incorrectas');
+      mostrarAlerta("error", "Credenciales incorrectas")
     }
   };
 
   const handleAddProduct = async () => {
+    // Validación de los campos
+    if (!newTitle || !newDescription || !newPrice || !newImage) {
+        mostrarAlerta("error", "Por favor, completa todos los campos.");
+        return;
+    }
+
     const newProduct = {
-      title: newTitle,
-      description: newDescription,
-      price: newPrice,
-      imgSrc: newImage ? URL.createObjectURL(newImage) : '/src/img/default.jpg',
+        title: newTitle,
+        description: newDescription,
+        price: newPrice,
+        imgSrc: URL.createObjectURL(newImage),
     };
 
     try {
-      const addedProduct = await postProducts(newProduct);
-      setCards(prevCards => [...prevCards, addedProduct]);
-      setNewTitle('');
-      setNewDescription('');
-      setNewPrice('');
-      setNewImage(null);
-      setNewProductOpen(false);
+        const addedProduct = await postProducts(newProduct);
+        setCards(prevCards => [...prevCards, addedProduct]);
+        setNewTitle('');
+        setNewDescription('');
+        setNewPrice('');
+        setNewImage(null);
+        setNewProductOpen(false);
     } catch (error) {
-      console.error('Error al agregar el producto:', error);
+        console.error('Error al agregar el producto:', error);
     }
   };
 
   const addToCart = (card) => {
-    setCart(prevCart => [...prevCart, card]); // Agregar producto al carrito
-    alert(`${card.title} ha sido agregado al carrito.`); // Mensaje de confirmación
+    setCart(prevCart => [...prevCart, card]);
+    mostrarAlerta('success', `${card.title} ha sido agregado al carrito.`);
   };
 
   const toggleCart = () => {
-    setShowCart(prevShowCart => !prevShowCart); // Alternar la visibilidad del carrito
+    setShowCart(prevShowCart => !prevShowCart);
   };
 
   return (
@@ -108,20 +115,8 @@ const Home = () => {
         
         {modalAbierto && (
           <div className="login-form" style={{ margin: '20px 0' }}>
-            <input 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              placeholder="Correo Electrónico" 
-              style={{ width: '100%', marginBottom: '10px' }} 
-            />
-            <input 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              placeholder="Contraseña" 
-              style={{ width: '100%', marginBottom: '10px' }} 
-            />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Correo Electrónico" style={{ width: '100%', marginBottom: '10px' }} />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" style={{ width: '100%', marginBottom: '10px' }} />
             <button onClick={handleLogin}>Iniciar Sesión</button>
           </div>
         )}
@@ -134,33 +129,10 @@ const Home = () => {
             
             {newProductOpen && (
               <div className="add-product-form" style={{ margin: '20px 0' }}>
-                <input 
-                  type="text" 
-                  value={newTitle} 
-                  onChange={(e) => setNewTitle(e.target.value)} 
-                  placeholder="Título del Producto" 
-                  style={{ width: '100%', marginBottom: '10px' }} 
-                />
-                <input 
-                  type="text" 
-                  value={newDescription} 
-                  onChange={(e) => setNewDescription(e.target.value)} 
-                  placeholder="Descripción" 
-                  style={{ width: '100%', marginBottom: '10px' }} 
-                />
-                <input 
-                  type="number" 
-                  value={newPrice} 
-                  onChange={(e) => setNewPrice(e.target.value)} 
-                  placeholder="Precio" 
-                  style={{ width: '100%', marginBottom: '10px' }} 
-                />
-                <input 
-                  type="file" 
-                  accept="image/*" 
-                  onChange={(e) => setNewImage(e.target.files[0])} 
-                  style={{ marginBottom: '10px' }} 
-                />
+                <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Título del Producto" style={{ width: '100%', marginBottom: '10px' }} />
+                <input type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} placeholder="Descripción" style={{ width: '100%', marginBottom: '10px' }} />
+                <input type="number" value={newPrice} onChange={(e) => setNewPrice(e.target.value)} placeholder="Precio" style={{ width: '100%', marginBottom: '10px' }} />
+                <input type="file" accept="image/*" onChange={(e) => setNewImage(e.target.files[0])} style={{ marginBottom: '10px' }} />
                 <button onClick={handleAddProduct}>Agregar Producto</button>
               </div>
             )}

@@ -14,7 +14,7 @@ const Carousel = () => {
           <img src="/src/img/WhatsApp Image 2024-09-13 at 1.50.26 PM.jpeg" className="d-block w-100" alt="Slide 2" />
         </div>
         <div className="carousel-item">
-          <img src="/src/WhatsApp Image 2024-09-19 at 8.34.01 AM.jpeg" className="d-block w-100" alt="Slide 3" />
+          <img src="/src/img/WhatsApp Image 2024-09-19 at 8.34.01 AM.jpeg" className="d-block w-100" alt="Slide 3" />
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

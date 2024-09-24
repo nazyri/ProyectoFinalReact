@@ -1,7 +1,7 @@
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 
-const PrivateRoute = ({ element, isAdmin }) => {
-  return isAdmin ? element : <Navigate to="/login" />;
-};
+// const PrivateRoute = ({ element, isAdmin }) => {
+//   return isAdmin ? element : <Navigate to="/login" />;
+// };
 
-export default PrivateRoute;
+// export default PrivateRoute;

@@ -9,6 +9,7 @@ import Contacto from "../pages/Contacto"
 import Ayuda from "../pages/Ayuda"
 
 const Routing = ()=>{
+  return(
     <Router>
     <Routes>
       <Route path='/' element={<Register/>}/>
@@ -21,5 +22,6 @@ const Routing = ()=>{
       <Route path="/Ayuda" element={<Ayuda />} />
     </Routes>
   </Router>
+  )
 }
 export default Routing

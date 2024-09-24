@@ -98,6 +98,13 @@
       "description": "Ensalada saludable lista para darte energia ",
       "price": "3500",
       "imgSrc": "blob:http://localhost:5173/2a402b92-ce41-4ea3-b815-c2f4cc04e1cd"
+    },
+    {
+      "id": "a37b",
+      "title": "",
+      "description": "",
+      "price": "",
+      "imgSrc": "/src/img/default.jpg"
     }
   ]
 }
